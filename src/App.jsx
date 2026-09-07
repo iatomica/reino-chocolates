@@ -49,7 +49,7 @@ export function App() {
       name: 'Caja Selección Clásica 24 Piezas',
       price: 34.00,
       quantity: 1,
-      image: '/assets/images/caja_chocolates_montana.jpg'
+      image: '/assets/images/caja_seleccion_clasica.jpg'
     }
   ]);
 
