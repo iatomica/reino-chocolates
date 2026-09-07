@@ -51,7 +51,7 @@ export const Hero = ({ onOpenTakeAway }) => {
         <div className="lg:col-span-7 relative flex justify-center lg:justify-end">
           <div className="relative w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl border border-[#9b713d]/30 group">
             <img
-              src="/assets/images/hero_lata_reino.jpg"
+              src="/assets/images/hero_lata_reino.webp"
               alt="Caja Vintage El Reino de los Chocolates"
               className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
             />

@@ -9,7 +9,7 @@ export const StorySection = () => {
       {/* Left Column: Workshop Artisan Photography */}
       <div className="relative min-h-[440px] lg:min-h-[600px]">
         <img
-          src="/assets/images/historia_artesanal.jpg"
+          src="/assets/images/historia_artesanal.webp"
           alt="Maestro chocolatero artesanal en su taller de montaña"
           className="w-full h-full object-cover"
         />

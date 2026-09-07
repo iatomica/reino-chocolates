@@ -5,22 +5,22 @@ const SPECIALTIES = [
   {
     id: 'bombones-clasicos',
     title: 'Bombones clásicos',
-    image: '/assets/images/cat_bombones_clasicos.jpg'
+    image: '/assets/images/cat_bombones_clasicos.webp'
   },
   {
     id: 'dulce-de-leche',
     title: 'Con dulce de leche',
-    image: '/assets/images/cat_dulce_de_leche.jpg'
+    image: '/assets/images/cat_dulce_de_leche.webp'
   },
   {
     id: 'surtidos-premium',
     title: 'Surtidos premium',
-    image: '/assets/images/cat_surtidos_premium.jpg'
+    image: '/assets/images/cat_surtidos_premium.webp'
   },
   {
     id: 'cajas-de-regalo',
     title: 'Cajas de regalo',
-    image: '/assets/images/cat_cajas_regalo.jpg'
+    image: '/assets/images/cat_cajas_regalo.webp'
   }
 ];
 
