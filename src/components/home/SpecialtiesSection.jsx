@@ -10,7 +10,7 @@ const SPECIALTIES = [
   {
     id: 'dulce-de-leche',
     title: 'Con dulce de leche',
-    image: '/assets/images/elixir_cacao_dorado.jpg'
+    image: '/assets/images/bombones_dulce_de_leche.jpg'
   },
   {
     id: 'surtidos-premium',
@@ -20,7 +20,7 @@ const SPECIALTIES = [
   {
     id: 'cajas-de-regalo',
     title: 'Cajas de regalo',
-    image: '/assets/images/caja_chocolates_montana.jpg'
+    image: '/assets/images/cofre_imperial.jpg'
   }
 ];
 

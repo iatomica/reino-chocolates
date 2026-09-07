@@ -9,7 +9,7 @@ export const StorySection = () => {
       {/* Left Column: Close-up Product Photography */}
       <div className="relative min-h-[440px] lg:min-h-[600px]">
         <img
-          src="/assets/images/trufa_orquidea_turquesa.jpg"
+          src="/assets/images/bombones_naranja.jpg"
           alt="Caja de chocolates artesanal con detalles dorados"
           className="w-full h-full object-cover"
         />
