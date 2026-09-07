@@ -6,11 +6,11 @@ export const StorySection = () => {
   return (
     <section id="historia" className="relative grid grid-cols-1 lg:grid-cols-2 bg-[#294b48] text-[#faf5e9] overflow-hidden">
       
-      {/* Left Column: Close-up Product Photography */}
+      {/* Left Column: Workshop Artisan Photography */}
       <div className="relative min-h-[440px] lg:min-h-[600px]">
         <img
-          src="/assets/images/bombones_naranja.jpg"
-          alt="Caja de chocolates artesanal con detalles dorados"
+          src="/assets/images/historia_artesanal.jpg"
+          alt="Maestro chocolatero artesanal en su taller de montaña"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[#294b48]/30 pointer-events-none" />

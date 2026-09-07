@@ -24,7 +24,7 @@ export const Hero = ({ onOpenTakeAway }) => {
           </h1>
 
           <p className="font-sans text-base text-[#746657] max-w-md leading-relaxed">
-            Bombones artesanales creados para convertir cada momento en algo especial. Ediciones limitadas en cajas vintage de turquesa y pan de oro.
+            Bombones artesanales creados para convertir cada momento en algo especial. Ediciones limitadas en cajas vintage de hojalata y cacao fino de origen.
           </p>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -51,12 +51,12 @@ export const Hero = ({ onOpenTakeAway }) => {
         <div className="lg:col-span-7 relative flex justify-center lg:justify-end">
           <div className="relative w-full max-w-2xl rounded-xl overflow-hidden shadow-2xl border border-[#9b713d]/30 group">
             <img
-              src="/assets/images/caja_chocolates_montana.jpg"
+              src="/assets/images/hero_lata_reino.jpg"
               alt="Caja Vintage El Reino de los Chocolates"
-              className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+              className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
             />
-            {/* Subtle vintage vignette gradient */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#21120c]/25 via-transparent to-transparent pointer-events-none" />
+            {/* Subtle vintage vignette */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#21120c]/20 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>
 

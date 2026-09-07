@@ -12,8 +12,8 @@ export const GiftSection = () => {
         <div className="lg:col-span-7 relative">
           <div className="relative rounded-xl overflow-hidden shadow-2xl border border-[#9b713d]/30 group">
             <img
-              src="/assets/images/caja_chocolates_montana.jpg"
-              alt="Caja de regalo El Reino de los Chocolates"
+              src="/assets/images/regalo_caja_lujo.jpg"
+              alt="Caja de regalo artesanal El Reino de los Chocolates"
               className="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-700"
             />
           </div>
@@ -37,7 +37,7 @@ export const GiftSection = () => {
           <div className="w-16 h-[1px] bg-[#9b713d]" />
 
           <p className="font-sans text-sm sm:text-base text-[#746657] leading-relaxed">
-            Diseñamos cajas de latón vintage grabadas con sellos de lacre y listones de seda. Regalar un chocolate de la Casa Real es entregar un gesto inolvidable de distinción y buen gusto.
+            Diseñamos cajas de regalo envueltas a mano con listones de seda y sellos de lacre en bronce. Regalar un chocolate de la Casa Real es entregar un gesto inolvidable de distinción y buen gusto.
           </p>
 
           <div className="pt-2">
