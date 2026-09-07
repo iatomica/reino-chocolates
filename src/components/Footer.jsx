@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Crown } from './ornaments/Crown';
 import { Send, Heart } from 'lucide-react';
-import { audioSynth } from './utils/audioHelper';
+import { audioSynth } from '../utils/audioHelper';
 
 export const Footer = () => {
   const [email, setEmail] = useState('');

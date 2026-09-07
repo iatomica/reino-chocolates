@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { RoyalCrest } from '../ornaments/RoyalCrest';
-import { MountainHeraldry } from '../ornaments/MountainHeraldry';
-import { Package, Store, Gift, Crown, Sparkles, Truck, Wine, Ticket, X, CheckCircle, Clock, MapPin, Calendar, QrCode } from 'lucide-react';
+import { Crown } from '../ornaments/Crown';
+import { Package, Store, Gift, Award, X, CheckCircle, Clock, MapPin, Calendar } from 'lucide-react';
 
 export const UserDashboard = ({ isOpen, onClose, user }) => {
   const [activeTab, setActiveTab] = useState('orders');
@@ -23,19 +22,19 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
     {
       id: 'RC-94821',
       date: '2026-09-06',
-      items: '1x Caja Chocolates Montaña Turquesa, 2x Trufa Orquídea Oro',
-      total: '$62.50',
-      status: 'En Camino',
-      type: 'Delivery VIP',
-      progress: 75
+      items: '1x Caja Selección Clásica 24 Piezas, 2x Bombones Dulce de Leche',
+      total: '$56.50',
+      status: 'En Preparación',
+      type: 'Envío a Domicilio',
+      progress: 40
     },
     {
       id: 'RC-88120',
       date: '2026-08-28',
-      items: '1x Tableta Ticket Dorado Wonka',
-      total: '$32.00',
+      items: '1x Tableta Grand Cru 85% Cacao',
+      total: '$18.00',
       status: 'Entregado',
-      type: 'Take Away Recoleta',
+      type: 'Retiro en Boutique Recoleta',
       progress: 100
     }
   ]);
@@ -52,72 +51,72 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
 
   const handleGenerateGiftCard = (e) => {
     e.preventDefault();
-    const code = 'ROYAL-GIFT-' + Math.random().toString(36).substring(2, 7).toUpperCase();
+    const code = 'REINO-REGALO-' + Math.random().toString(36).substring(2, 7).toUpperCase();
     setGeneratedCard({
       code,
       amount: giftAmount,
-      recipient: recipientName || 'Un Ser Querido',
-      message: giftMessage || 'Un dulce regalo real para ti.'
+      recipient: recipientName || 'Destinatario Especial',
+      message: giftMessage || 'Un dulce regalo artesanal.'
     });
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#120A07]/80 backdrop-blur-md p-4 overflow-y-auto animate-fade-in">
-      <div className="relative w-full max-w-4xl bg-[#FAF5EB] border-2 border-[#FFD700]/70 shadow-2xl rounded-2xl overflow-hidden text-[#120A07] my-8">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#21120c]/70 backdrop-blur-sm p-4 overflow-y-auto animate-fade-in">
+      <div className="relative w-full max-w-4xl bg-[#faf5e9] border border-[#9b713d]/40 shadow-xl rounded-lg overflow-hidden text-[#3b271b] my-8">
         
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#120A07] via-[#05668D] to-[#120A07] p-6 text-[#FAF5EB] relative border-b border-[#FFD700]/40">
+        <div className="bg-[#f3ead9] p-6 text-[#3b271b] relative border-b border-[#9b713d]/25">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-[#FFD700] hover:text-white w-9 h-9 rounded-full flex items-center justify-center bg-[#120A07]/40 border border-[#FFD700]/40 transition-colors"
+            className="absolute top-4 right-4 text-[#746657] hover:text-[#3b271b] w-8 h-8 rounded-full flex items-center justify-center hover:bg-[#faf5e9] transition-colors"
             title="Cerrar"
           >
             <X className="w-5 h-5" />
           </button>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-full bg-[#120A07]/60 border-2 border-[#FFD700] flex items-center justify-center text-[#FFD700] shadow-inner">
-                <Crown className="w-7 h-7" />
+            <div className="flex items-center gap-3.5">
+              <div className="w-12 h-12 rounded-full bg-[#faf5e9] border border-[#9b713d]/40 flex items-center justify-center text-[#9b713d]">
+                <Crown className="w-6 h-6" />
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <h2 className="font-serif text-2xl font-bold text-white drop-shadow">{user?.name || 'Cliente VIP'}</h2>
-                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold bg-[#FFD700] text-[#120A07] font-sans">
-                    {user?.vipLevel || 'Socio Oro'}
+                  <h2 className="font-serif text-2xl font-bold text-[#3b271b]">{user?.name || 'Cliente'}</h2>
+                  <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#6f9f9a]/20 text-[#294b48] font-sans">
+                    {user?.vipLevel || 'Cliente Frecuente'}
                   </span>
                 </div>
-                <p className="text-xs text-[#FAF5EB]/80 font-sans mt-0.5">{user?.email}</p>
+                <p className="text-xs text-[#746657] font-sans mt-0.5">{user?.email}</p>
               </div>
             </div>
 
-            {/* VIP Loyalty Points Badge */}
-            <div className="bg-[#120A07]/60 border border-[#FFD700]/50 px-5 py-2.5 rounded-xl text-center sm:text-right">
-              <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#FFD700] block">Puntos Acumulados</span>
-              <span className="font-serif text-2xl font-bold text-[#FFD700]">{user?.points || 1450} PTS</span>
+            {/* Points Badge */}
+            <div className="bg-[#faf5e9] border border-[#9b713d]/30 px-4 py-2 rounded text-center sm:text-right">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-[#746657] block">Puntos Acumulados</span>
+              <span className="font-serif text-xl font-bold text-[#9b713d]">{user?.points || 450} PTS</span>
             </div>
           </div>
 
           {/* Navigation Tabs */}
-          <div className="flex flex-wrap gap-2 mt-6 border-t border-white/15 pt-4">
+          <div className="flex flex-wrap gap-2 mt-6 border-t border-[#9b713d]/15 pt-4">
             <button
               onClick={() => setActiveTab('orders')}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-serif font-bold transition-all ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-sans font-semibold transition-all ${
                 activeTab === 'orders'
-                  ? 'bg-[#FFD700] text-[#120A07] shadow-md'
-                  : 'bg-white/10 text-[#FAF5EB] hover:bg-white/20'
+                  ? 'bg-[#6f9f9a] text-[#faf5e9] shadow-sm'
+                  : 'bg-[#faf5e9] text-[#3b271b] hover:bg-[#9b713d]/10'
               }`}
             >
               <Package className="w-4 h-4" />
-              <span>Mis Compras & Pedidos</span>
+              <span>Mis Pedidos</span>
             </button>
 
             <button
               onClick={() => setActiveTab('takeaway')}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-serif font-bold transition-all ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-sans font-semibold transition-all ${
                 activeTab === 'takeaway'
-                  ? 'bg-[#FFD700] text-[#120A07] shadow-md'
-                  : 'bg-white/10 text-[#FAF5EB] hover:bg-white/20'
+                  ? 'bg-[#6f9f9a] text-[#faf5e9] shadow-sm'
+                  : 'bg-[#faf5e9] text-[#3b271b] hover:bg-[#9b713d]/10'
               }`}
             >
               <Store className="w-4 h-4" />
@@ -126,10 +125,10 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
 
             <button
               onClick={() => setActiveTab('giftcard')}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-serif font-bold transition-all ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-sans font-semibold transition-all ${
                 activeTab === 'giftcard'
-                  ? 'bg-[#FFD700] text-[#120A07] shadow-md'
-                  : 'bg-white/10 text-[#FAF5EB] hover:bg-white/20'
+                  ? 'bg-[#6f9f9a] text-[#faf5e9] shadow-sm'
+                  : 'bg-[#faf5e9] text-[#3b271b] hover:bg-[#9b713d]/10'
               }`}
             >
               <Gift className="w-4 h-4" />
@@ -138,60 +137,59 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
 
             <button
               onClick={() => setActiveTab('vip')}
-              className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-serif font-bold transition-all ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-sans font-semibold transition-all ${
                 activeTab === 'vip'
-                  ? 'bg-[#FFD700] text-[#120A07] shadow-md'
-                  : 'bg-white/10 text-[#FAF5EB] hover:bg-white/20'
+                  ? 'bg-[#6f9f9a] text-[#faf5e9] shadow-sm'
+                  : 'bg-[#faf5e9] text-[#3b271b] hover:bg-[#9b713d]/10'
               }`}
             >
-              <Crown className="w-4 h-4" />
-              <span>Beneficios VIP</span>
+              <Award className="w-4 h-4" />
+              <span>Beneficios</span>
             </button>
           </div>
         </div>
 
         {/* Dashboard Content */}
-        <div className="p-6 md:p-8 min-h-[380px]">
+        <div className="p-6 md:p-8 min-h-[360px]">
           
           {/* TAB 1: MIS COMPRAS & PEDIDOS */}
           {activeTab === 'orders' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl font-bold text-[#120A07] flex items-center gap-2">
-                  <Package className="w-5 h-5 text-[#05668D]" />
-                  <span>Historial de Pedidos Recientes</span>
+                <h3 className="font-serif text-xl font-bold text-[#3b271b] flex items-center gap-2">
+                  <Package className="w-5 h-5 text-[#9b713d]" />
+                  <span>Historial de Pedidos</span>
                 </h3>
-                <span className="text-xs text-[#120A07]/60 font-sans">Actualizado en tiempo real</span>
               </div>
 
               <div className="space-y-4">
                 {orders.map((order) => (
-                  <div key={order.id} className="p-5 rounded-xl bg-white border border-[#FFD700]/40 shadow-sm space-y-3">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#FFD700]/20 pb-3 gap-2">
+                  <div key={order.id} className="p-5 rounded-lg bg-white border border-[#9b713d]/25 shadow-sm space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-[#9b713d]/15 pb-3 gap-2">
                       <div>
-                        <span className="text-xs font-extrabold text-[#05668D] tracking-wider">{order.id}</span>
-                        <span className="text-xs text-[#120A07]/60 ml-3">{order.date} • {order.type}</span>
+                        <span className="text-xs font-bold text-[#3f6f6b] tracking-wider">{order.id}</span>
+                        <span className="text-xs text-[#746657] ml-3">{order.date} • {order.type}</span>
                       </div>
                       <div className="flex items-center gap-3">
-                        <span className="font-bold text-[#120A07] font-serif text-base">{order.total}</span>
-                        <span className="px-3 py-1 text-[11px] font-bold rounded-full bg-[#FFD700]/20 text-[#120A07] border border-[#FFD700]/50">
+                        <span className="font-bold text-[#3b271b] font-serif text-base">{order.total}</span>
+                        <span className="px-3 py-0.5 text-[11px] font-semibold rounded bg-[#f3ead9] text-[#3b271b] border border-[#9b713d]/30">
                           {order.status}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-sm font-sans text-[#120A07]/80">{order.items}</p>
+                    <p className="text-xs font-sans text-[#746657]">{order.items}</p>
 
                     {/* Progress Bar */}
                     <div className="space-y-1.5 pt-1">
-                      <div className="flex justify-between text-[11px] text-[#120A07]/75 font-semibold">
+                      <div className="flex justify-between text-[11px] text-[#746657]">
                         <span>En preparación</span>
-                        <span>En camino / Listo</span>
+                        <span>Listo para retiro</span>
                         <span>Entregado</span>
                       </div>
-                      <div className="w-full bg-[#FAF5EB] h-2.5 rounded-full overflow-hidden border border-[#FFD700]/30">
+                      <div className="w-full bg-[#f3ead9] h-2 rounded-full overflow-hidden border border-[#9b713d]/20">
                         <div
-                          className="bg-gradient-to-r from-[#00A896] via-[#0DB4B9] to-[#FFD700] h-full rounded-full transition-all duration-500"
+                          className="bg-[#6f9f9a] h-full rounded-full transition-all duration-500"
                           style={{ width: `${order.progress}%` }}
                         ></div>
                       </div>
@@ -205,39 +203,36 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
           {/* TAB 2: PEDIDOS TAKE AWAY */}
           {activeTab === 'takeaway' && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-serif text-xl font-bold text-[#120A07] flex items-center gap-2">
-                    <Store className="w-5 h-5 text-[#05668D]" />
-                    <span>Programar Retiro en Boutique (Take Away)</span>
-                  </h3>
-                  <p className="text-xs text-[#120A07]/70 mt-0.5">
-                    Agenda tu horario ideal para retirar tus cajas de chocolate recién preparadas.
-                  </p>
-                </div>
-                <MountainHeraldry className="w-12 h-12 text-[#FFD700] opacity-60 hidden sm:block" />
+              <div>
+                <h3 className="font-serif text-xl font-bold text-[#3b271b] flex items-center gap-2">
+                  <Store className="w-5 h-5 text-[#9b713d]" />
+                  <span>Programar Retiro en Boutique (Take Away)</span>
+                </h3>
+                <p className="text-xs text-[#746657] mt-0.5">
+                  Elige la sucursal y el horario para retirar tus chocolates recién empacados.
+                </p>
               </div>
 
               {takeAwaySuccess && (
-                <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 text-emerald-900 text-sm font-semibold flex items-center gap-3 animate-fade-in">
-                  <CheckCircle className="w-6 h-6 text-emerald-600 flex-shrink-0" />
+                <div className="p-4 rounded-lg bg-emerald-50 border border-emerald-300 text-emerald-900 text-sm font-medium flex items-center gap-3 animate-fade-in">
+                  <CheckCircle className="w-5 h-5 text-emerald-700 flex-shrink-0" />
                   <div>
                     <p className="font-bold">¡Reserva de Take Away Confirmada!</p>
-                    <p className="text-xs text-emerald-700">Te enviamos el código QR a tu correo para retiro sin esperas.</p>
+                    <p className="text-xs text-emerald-800">Te enviamos el código a tu correo para retiro sin demoras.</p>
                   </div>
                 </div>
               )}
 
-              <form onSubmit={handleCreateTakeAway} className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-xl border border-[#FFD700]/40 shadow-sm">
+              <form onSubmit={handleCreateTakeAway} className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 rounded-lg border border-[#9b713d]/25 shadow-sm">
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#120A07] mb-2 flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-[#05668D]" />
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#3b271b] mb-2 flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#9b713d]" />
                     <span>Sucursal Boutique</span>
                   </label>
                   <select
                     value={takeAwayBranch}
                     onChange={(e) => setTakeAwayBranch(e.target.value)}
-                    className="w-full p-3 rounded-lg border border-[#FFD700]/50 bg-[#FAF5EB]/50 text-sm font-sans focus:outline-none focus:border-[#0DB4B9]"
+                    className="w-full p-2.5 rounded border border-[#9b713d]/30 bg-[#faf5e9] text-sm font-sans focus:outline-none focus:border-[#6f9f9a]"
                   >
                     <option value="recoleta">Boutique Recoleta (Av. Alvear 1850)</option>
                     <option value="palermo">Boutique Palermo Soho (Gurruchaga 1620)</option>
@@ -246,27 +241,27 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#120A07] mb-2 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-[#05668D]" />
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#3b271b] mb-2 flex items-center gap-1.5">
+                    <Calendar className="w-3.5 h-3.5 text-[#9b713d]" />
                     <span>Fecha de Retiro</span>
                   </label>
                   <input
                     type="date"
                     value={takeAwayDate}
                     onChange={(e) => setTakeAwayDate(e.target.value)}
-                    className="w-full p-3 rounded-lg border border-[#FFD700]/50 bg-[#FAF5EB]/50 text-sm font-sans focus:outline-none focus:border-[#0DB4B9]"
+                    className="w-full p-2.5 rounded border border-[#9b713d]/30 bg-[#faf5e9] text-sm font-sans focus:outline-none focus:border-[#6f9f9a]"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#120A07] mb-2 flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[#05668D]" />
+                  <label className="block text-xs font-bold uppercase tracking-wider text-[#3b271b] mb-2 flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#9b713d]" />
                     <span>Banda Horaria</span>
                   </label>
                   <select
                     value={takeAwayTime}
                     onChange={(e) => setTakeAwayTime(e.target.value)}
-                    className="w-full p-3 rounded-lg border border-[#FFD700]/50 bg-[#FAF5EB]/50 text-sm font-sans focus:outline-none focus:border-[#0DB4B9]"
+                    className="w-full p-2.5 rounded border border-[#9b713d]/30 bg-[#faf5e9] text-sm font-sans focus:outline-none focus:border-[#6f9f9a]"
                   >
                     <option value="11:00">11:00 hs - 13:00 hs (Turno Mañana)</option>
                     <option value="14:30">14:30 hs - 16:30 hs (Turno Tarde I)</option>
@@ -278,9 +273,9 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
                 <div className="flex items-end">
                   <button
                     type="submit"
-                    className="w-full py-3.5 px-6 rounded-lg bg-gradient-to-r from-[#00A896] to-[#05668D] text-white font-serif font-bold tracking-wider hover:brightness-110 transition-all shadow-md"
+                    className="w-full py-3 px-6 rounded-full bg-[#6f9f9a] hover:bg-[#3f6f6b] text-[#faf5e9] font-sans font-semibold text-xs tracking-wider transition-colors uppercase shadow-sm"
                   >
-                    AGENDAR RETIRO EXPRÉS →
+                    Confirmar Retiro
                   </button>
                 </div>
               </form>
@@ -291,19 +286,19 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
           {activeTab === 'giftcard' && (
             <div className="space-y-6">
               <div>
-                <h3 className="font-serif text-xl font-bold text-[#120A07] flex items-center gap-2">
-                  <Gift className="w-5 h-5 text-[#05668D]" />
-                  <span>Emitir Tarjeta de Regalo Digital (Gift Card)</span>
+                <h3 className="font-serif text-xl font-bold text-[#3b271b] flex items-center gap-2">
+                  <Gift className="w-5 h-5 text-[#9b713d]" />
+                  <span>Emitir Tarjeta de Regalo Digital</span>
                 </h3>
-                <p className="text-xs text-[#120A07]/70 mt-0.5">
-                  Crea una tarjeta regalable con los distinguidos colores Turquesa, Oro y Montaña Real.
+                <p className="text-xs text-[#746657] mt-0.5">
+                  Obsequia una tarjeta canjeable en cualquiera de nuestras boutiques o tienda online.
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <form onSubmit={handleGenerateGiftCard} className="space-y-4 bg-white p-6 rounded-xl border border-[#FFD700]/40 shadow-sm">
+                <form onSubmit={handleGenerateGiftCard} className="space-y-4 bg-white p-6 rounded-lg border border-[#9b713d]/25 shadow-sm">
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#120A07] mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#3b271b] mb-1">
                       Monto del Regalo ($ USD)
                     </label>
                     <div className="flex gap-2">
@@ -312,10 +307,10 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
                           key={amt}
                           type="button"
                           onClick={() => setGiftAmount(amt)}
-                          className={`flex-1 py-2 rounded-lg text-xs font-bold font-serif transition-all ${
+                          className={`flex-1 py-2 rounded text-xs font-semibold font-sans transition-all ${
                             giftAmount === amt
-                              ? 'bg-[#FFD700] text-[#120A07] shadow-md border-2 border-[#FFD700]'
-                              : 'bg-[#FAF5EB]/80 text-[#120A07] border border-[#FFD700]/30 hover:bg-[#FFD700]/20'
+                              ? 'bg-[#3f6f6b] text-[#faf5e9]'
+                              : 'bg-[#f3ead9] text-[#3b271b] hover:bg-[#9b713d]/20 border border-[#9b713d]/25'
                           }`}
                         >
                           ${amt}
@@ -325,7 +320,7 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#120A07] mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#3b271b] mb-1">
                       Nombre del Destinatario
                     </label>
                     <input
@@ -333,61 +328,57 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
                       value={recipientName}
                       onChange={(e) => setRecipientName(e.target.value)}
                       placeholder="Ej: Mateo Fernández"
-                      className="w-full p-2.5 rounded-lg border border-[#FFD700]/50 text-sm font-sans focus:outline-none focus:border-[#0DB4B9]"
+                      className="w-full p-2.5 rounded border border-[#9b713d]/30 text-sm font-sans focus:outline-none focus:border-[#6f9f9a]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#120A07] mb-1">
-                      Mensaje Personalizado
+                    <label className="block text-xs font-bold uppercase tracking-wider text-[#3b271b] mb-1">
+                      Dedicatoria
                     </label>
                     <textarea
                       value={giftMessage}
                       onChange={(e) => setGiftMessage(e.target.value)}
-                      placeholder="Escribe tu dedicatoria especial..."
+                      placeholder="Escribe tu mensaje personal..."
                       rows="3"
-                      className="w-full p-2.5 rounded-lg border border-[#FFD700]/50 text-sm font-sans focus:outline-none focus:border-[#0DB4B9]"
+                      className="w-full p-2.5 rounded border border-[#9b713d]/30 text-sm font-sans focus:outline-none focus:border-[#6f9f9a]"
                     ></textarea>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-lg bg-gradient-to-r from-[#FFD700] via-[#F4D03F] to-[#D4AF37] text-[#120A07] font-serif font-bold tracking-wider hover:brightness-105 shadow-md"
+                    className="w-full py-2.5 rounded-full bg-[#9b713d] hover:bg-[#c1a06c] text-[#faf5e9] font-sans font-semibold text-xs tracking-wider transition-colors shadow-sm"
                   >
-                    GENERAR GIFT CARD DIGITAL →
+                    Generar Tarjeta de Regalo
                   </button>
                 </form>
 
                 {/* Preview Gift Card */}
                 <div className="flex flex-col justify-center">
-                  <div className="relative p-6 rounded-2xl bg-gradient-to-br from-[#120A07] via-[#05668D] to-[#00A896] border-2 border-[#FFD700] text-[#FAF5EB] shadow-2xl overflow-hidden min-h-[220px] flex flex-col justify-between">
-                    <div className="absolute top-0 right-0 transform translate-x-6 -translate-y-6 opacity-25">
-                      <RoyalCrest className="w-40 h-40 text-[#FFD700]" />
-                    </div>
-
-                    <div className="flex justify-between items-start z-10">
+                  <div className="relative p-6 rounded-lg bg-[#3f6f6b] text-[#faf5e9] border border-[#9b713d]/50 shadow-md min-h-[220px] flex flex-col justify-between">
+                    <div className="flex justify-between items-start">
                       <div>
-                        <span className="text-[10px] font-extrabold tracking-widest text-[#FFD700] uppercase block">
+                        <span className="text-[10px] font-bold tracking-widest uppercase block text-[#c1a06c]">
                           El Reino de los Chocolates
                         </span>
-                        <h4 className="font-serif text-lg font-bold text-white">GIFT CARD REAL</h4>
+                        <h4 className="font-serif text-lg font-bold text-white">TARJETA DE REGALO</h4>
                       </div>
-                      <span className="font-serif text-2xl font-bold text-[#FFD700]">${generatedCard ? generatedCard.amount : giftAmount}</span>
+                      <span className="font-serif text-2xl font-bold text-[#c1a06c]">${generatedCard ? generatedCard.amount : giftAmount}</span>
                     </div>
 
-                    <div className="my-4 z-10">
-                      <p className="text-xs text-[#FAF5EB]/70">Para:</p>
-                      <p className="font-serif font-bold text-base text-[#FFD700]">
-                        {generatedCard ? generatedCard.recipient : (recipientName || 'Nombre del Agasajado')}
+                    <div className="my-4">
+                      <p className="text-xs text-[#faf5e9]/70">Para:</p>
+                      <p className="font-serif font-bold text-base text-white">
+                        {generatedCard ? generatedCard.recipient : (recipientName || 'Nombre del Destinatario')}
                       </p>
-                      <p className="text-xs italic text-[#FAF5EB]/90 mt-1 line-clamp-2">
-                        "{generatedCard ? generatedCard.message : (giftMessage || 'Con todo nuestro afecto real.')}"
+                      <p className="text-xs italic text-[#faf5e9]/90 mt-1 line-clamp-2">
+                        "{generatedCard ? generatedCard.message : (giftMessage || 'Un obsequio de chocolates artesanales para ti.')}"
                       </p>
                     </div>
 
-                    <div className="flex justify-between items-end text-[11px] font-mono tracking-widest text-[#FFD700] z-10 border-t border-white/20 pt-2">
-                      <span>CÓDIGO: {generatedCard ? generatedCard.code : 'ROYAL-XXXX-XXXX'}</span>
-                      <span className="text-[9px] uppercase font-sans text-[#FAF5EB]/60">VÁLIDO POR 1 AÑO</span>
+                    <div className="flex justify-between items-end text-[11px] font-mono tracking-widest text-[#c1a06c] border-t border-white/20 pt-2">
+                      <span>CÓDIGO: {generatedCard ? generatedCard.code : 'REINO-XXXX-XXXX'}</span>
+                      <span className="text-[9px] uppercase font-sans text-[#faf5e9]/70">VÁLIDO POR 1 AÑO</span>
                     </div>
                   </div>
                 </div>
@@ -395,38 +386,33 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
             </div>
           )}
 
-          {/* TAB 4: BENEFICIOS VIP */}
+          {/* TAB 4: BENEFICIOS */}
           {activeTab === 'vip' && (
             <div className="space-y-6">
-              <div className="flex items-center justify-between">
-                <div>
-                  <h3 className="font-serif text-xl font-bold text-[#120A07] flex items-center gap-2">
-                    <Crown className="w-5 h-5 text-[#D4AF37]" />
-                    <span>Club Privado de Alquimia VIP</span>
-                  </h3>
-                  <p className="text-xs text-[#120A07]/70">
-                    Nivel actual: <strong className="text-[#05668D] font-bold">Socio Oro (1,450 pts)</strong>
-                  </p>
-                </div>
+              <div>
+                <h3 className="font-serif text-xl font-bold text-[#3b271b] flex items-center gap-2">
+                  <Award className="w-5 h-5 text-[#9b713d]" />
+                  <span>Beneficios del Club de Clientes</span>
+                </h3>
+                <p className="text-xs text-[#746657]">
+                  Puntos disponibles: <strong className="text-[#3b271b] font-bold">{user?.points || 450} puntos</strong>
+                </p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-5 rounded-xl bg-white border border-[#FFD700]/40 shadow-sm text-center space-y-2">
-                  <Truck className="w-8 h-8 mx-auto text-[#00A896]" />
-                  <h4 className="font-serif font-bold text-[#120A07]">Envíos Fríos Gratis</h4>
-                  <p className="text-xs text-[#120A07]/70">En todas tus compras de caja turquesa sin mínimo de compra.</p>
+                <div className="p-5 rounded-lg bg-white border border-[#9b713d]/25 shadow-sm text-center space-y-2">
+                  <h4 className="font-serif font-bold text-[#3b271b]">Envíos Bonificados</h4>
+                  <p className="text-xs text-[#746657]">Envíos refrigerados sin cargo en compras superiores a $50 USD.</p>
                 </div>
 
-                <div className="p-5 rounded-xl bg-white border border-[#FFD700]/40 shadow-sm text-center space-y-2">
-                  <Wine className="w-8 h-8 mx-auto text-[#D4AF37]" />
-                  <h4 className="font-serif font-bold text-[#120A07]">Cata Privada Anual</h4>
-                  <p className="text-xs text-[#120A07]/70">Invitación exclusiva para 2 personas en la Maison Recoleta.</p>
+                <div className="p-5 rounded-lg bg-white border border-[#9b713d]/25 shadow-sm text-center space-y-2">
+                  <h4 className="font-serif font-bold text-[#3b271b]">Cata Anual</h4>
+                  <p className="text-xs text-[#746657]">Invitación especial a nuestras sesiones de degustación de nuevos orígenes.</p>
                 </div>
 
-                <div className="p-5 rounded-xl bg-white border border-[#FFD700]/40 shadow-sm text-center space-y-2">
-                  <Ticket className="w-8 h-8 mx-auto text-[#0DB4B9]" />
-                  <h4 className="font-serif font-bold text-[#120A07]">Ticket Dorado Garantizado</h4>
-                  <p className="text-xs text-[#120A07]/70">Acceso prioritario a las ediciones limitadas de navidad.</p>
+                <div className="p-5 rounded-lg bg-white border border-[#9b713d]/25 shadow-sm text-center space-y-2">
+                  <h4 className="font-serif font-bold text-[#3b271b]">Ediciones Especiales</h4>
+                  <p className="text-xs text-[#746657]">Reserva prioritaria para cajas de latón vintage de edición limitada.</p>
                 </div>
               </div>
             </div>

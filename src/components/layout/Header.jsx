@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Crown } from '../ornaments/Crown';
-import { RoyalCrest } from '../ornaments/RoyalCrest';
-import { Search, User, ShoppingBag, Menu, X, ShieldCheck, UserCheck } from 'lucide-react';
+import { User, ShoppingBag, Menu, X, ShieldCheck, UserCheck } from 'lucide-react';
 
 export const Header = ({ 
   cartCount = 0, 
@@ -16,7 +15,7 @@ export const Header = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -24,93 +23,94 @@ export const Header = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         isScrolled
-          ? 'bg-[#120A07]/95 text-[#FAF5EB] backdrop-blur-md shadow-xl py-3 border-b border-[#FFD700]/30'
-          : 'bg-gradient-to-b from-[#120A07]/95 via-[#120A07]/60 to-transparent py-4 text-[#FAF5EB]'
+          ? 'bg-[#faf5e9] text-[#3b271b] shadow-sm py-3 border-b border-[#9b713d]/20'
+          : 'bg-[#faf5e9]/90 backdrop-blur-sm py-4 text-[#3b271b] border-b border-[#9b713d]/15'
       }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between">
         
         {/* Desktop Left Menu */}
-        <nav className="hidden lg:flex items-center gap-8 font-serif text-xs font-semibold tracking-widest uppercase">
-          <a href="#productos" className="text-[#FAF5EB] hover:text-[#FFD700] transition-colors relative group py-1">
-            Chocolates Turquesa
-            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FFD700] group-hover:w-full transition-all duration-300"></span>
+        <nav className="hidden lg:flex items-center gap-8 font-serif text-sm tracking-wide text-[#3b271b]">
+          <a href="#productos" className="hover:text-[#9b713d] transition-colors py-1">
+            Productos
           </a>
-          <a href="#alquimia" className="text-[#FAF5EB] hover:text-[#FFD700] transition-colors relative group py-1">
-            Laboratorio Real
-            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FFD700] group-hover:w-full transition-all duration-300"></span>
-          </a>
-          <a href="#historia" className="text-[#FAF5EB] hover:text-[#FFD700] transition-colors relative group py-1">
-            Edición Montaña
-            <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#FFD700] group-hover:w-full transition-all duration-300"></span>
+          <a href="#historia" className="hover:text-[#9b713d] transition-colors py-1">
+            Nuestra Historia
           </a>
         </nav>
 
         {/* Center Brand Logo */}
         <a href="#" className="flex flex-col items-center group">
-          <Crown className="w-8 h-8 text-[#FFD700] group-hover:scale-110 transition-transform duration-300 drop-shadow" />
-          <div className="text-center mt-0.5">
-            <span className="font-serif text-2xl font-bold tracking-[0.18em] text-[#FFD700] block leading-none drop-shadow">
+          <Crown className="w-6 h-6 text-[#9b713d] group-hover:scale-105 transition-transform duration-300" />
+          <div className="text-center mt-1">
+            <span className="font-serif text-2xl font-bold tracking-[0.16em] text-[#3b271b] block leading-none">
               EL REINO
             </span>
-            <span className="font-sans text-[10px] text-[#0DB4B9] block font-semibold tracking-widest uppercase mt-0.5">
+            <span className="font-script text-base text-[#9b713d] block font-normal -mt-1">
               de los Chocolates
             </span>
           </div>
         </a>
 
         {/* Desktop Right Actions & Auth */}
-        <div className="hidden lg:flex items-center gap-6 font-serif text-xs font-semibold">
-          
-          {/* User Account / Login State */}
-          {currentUser ? (
-            <div className="flex items-center gap-3">
-              {currentUser.role === 'admin' ? (
-                <button
-                  onClick={onOpenAdminDashboard}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#FFD700] to-[#D4AF37] text-[#120A07] font-serif font-extrabold text-xs hover:brightness-110 transition-all shadow-md"
-                >
-                  <ShieldCheck className="w-4 h-4 text-[#120A07]" />
-                  <span>PANEL ADMIN</span>
-                </button>
-              ) : (
-                <button
-                  onClick={onOpenUserDashboard}
-                  className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#00A896]/30 border border-[#0DB4B9] text-[#FAF5EB] hover:bg-[#00A896]/60 transition-all text-xs font-serif shadow-sm"
-                >
-                  <UserCheck className="w-4 h-4 text-[#FFD700]" />
-                  <span className="font-bold">{currentUser.name}</span>
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#FFD700] text-[#120A07] font-sans font-extrabold">
-                    {currentUser.points} PTS
-                  </span>
-                </button>
-              )}
-            </div>
-          ) : (
-            <button
-              onClick={onOpenLogin}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#FFD700]/80 bg-[#120A07]/40 text-[#FFD700] hover:bg-[#FFD700] hover:text-[#120A07] transition-all duration-300 font-serif text-xs tracking-wider shadow"
-            >
-              <User className="w-3.5 h-3.5" />
-              <span>INGRESAR / LOGIN</span>
-            </button>
-          )}
+        <div className="hidden lg:flex items-center gap-7 font-serif text-sm">
+          <nav className="flex items-center gap-7 text-[#3b271b]">
+            <a href="#regalos" className="hover:text-[#9b713d] transition-colors">
+              Regalos
+            </a>
+            <a href="#contacto" className="hover:text-[#9b713d] transition-colors">
+              Contacto
+            </a>
+          </nav>
 
-          {/* Cart Icon */}
-          <button
-            onClick={onOpenCart}
-            className="relative flex items-center justify-center p-2.5 rounded-full bg-[#120A07]/80 border border-[#FFD700]/50 text-[#FFD700] hover:bg-[#FFD700] hover:text-[#120A07] transition-all shadow"
-            title="Ver carrito de compras"
-          >
-            <ShoppingBag className="w-4.5 h-4.5" />
-            {cartCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-[#FFD700] text-[#120A07] font-sans text-[11px] font-extrabold flex items-center justify-center border border-[#120A07] shadow">
-                {cartCount}
-              </span>
+          <div className="flex items-center gap-4 pl-4 border-l border-[#9b713d]/25">
+            {/* User Account / Login State */}
+            {currentUser ? (
+              <div className="flex items-center gap-2">
+                {currentUser.role === 'admin' ? (
+                  <button
+                    onClick={onOpenAdminDashboard}
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#9b713d] text-[#faf5e9] font-sans text-xs font-semibold hover:bg-[#c1a06c] transition-colors"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    <span>Panel Admin</span>
+                  </button>
+                ) : (
+                  <button
+                    onClick={onOpenUserDashboard}
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#f3ead9] border border-[#9b713d]/30 text-[#3b271b] hover:border-[#9b713d] transition-all text-xs font-sans"
+                  >
+                    <UserCheck className="w-3.5 h-3.5 text-[#9b713d]" />
+                    <span className="font-medium">{currentUser.name}</span>
+                  </button>
+                )}
+              </div>
+            ) : (
+              <button
+                onClick={onOpenLogin}
+                className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#9b713d]/60 text-[#3b271b] hover:bg-[#9b713d] hover:text-[#faf5e9] transition-all font-sans text-xs font-semibold"
+              >
+                <User className="w-3.5 h-3.5" />
+                <span>Ingresar</span>
+              </button>
             )}
-          </button>
+
+            {/* Cart Icon */}
+            <button
+              onClick={onOpenCart}
+              className="relative p-2 rounded-full text-[#3b271b] hover:text-[#9b713d] transition-colors"
+              title="Ver carrito de compras"
+            >
+              <ShoppingBag className="w-4 h-4" />
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 w-4.5 h-4.5 rounded-full bg-[#9b713d] text-[#faf5e9] font-sans text-[10px] font-bold flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Header Controls */}
@@ -118,30 +118,30 @@ export const Header = ({
           {currentUser ? (
             <button
               onClick={currentUser.role === 'admin' ? onOpenAdminDashboard : onOpenUserDashboard}
-              className="px-3 py-1 rounded-full bg-[#FFD700] text-[#120A07] text-xs font-bold font-serif"
+              className="px-3 py-1 rounded-full bg-[#9b713d] text-[#faf5e9] text-xs font-sans font-semibold"
             >
-              {currentUser.role === 'admin' ? 'ADMIN' : 'MI CUENTA'}
+              {currentUser.role === 'admin' ? 'Admin' : 'Mi Cuenta'}
             </button>
           ) : (
             <button
               onClick={onOpenLogin}
-              className="p-1.5 text-[#FFD700]"
+              className="p-1.5 text-[#3b271b]"
               title="Ingresar"
             >
               <User className="w-5 h-5" />
             </button>
           )}
 
-          <button onClick={onOpenCart} className="relative p-1.5 text-[#FFD700]">
+          <button onClick={onOpenCart} className="relative p-1.5 text-[#3b271b]">
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#FFD700] text-[#120A07] text-[10px] font-bold flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-[#9b713d] text-[#faf5e9] text-[10px] font-bold flex items-center justify-center">
                 {cartCount}
               </span>
             )}
           </button>
 
-          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-1.5 text-[#FAF5EB]">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-1.5 text-[#3b271b]">
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -150,21 +150,22 @@ export const Header = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#120A07] border-b border-[#FFD700]/30 px-6 py-6 space-y-4 font-serif text-center text-[#FAF5EB] animate-fade-in">
-          <a href="#productos" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#FAF5EB]">Chocolates Turquesa</a>
-          <a href="#alquimia" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#FAF5EB]">Laboratorio Real</a>
-          <a href="#historia" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#FAF5EB]">Edición Montaña</a>
+        <div className="lg:hidden bg-[#faf5e9] border-b border-[#9b713d]/20 px-6 py-6 space-y-4 font-serif text-center text-[#3b271b]">
+          <a href="#productos" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#3b271b]">Productos</a>
+          <a href="#historia" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#3b271b]">Nuestra Historia</a>
+          <a href="#regalos" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#3b271b]">Regalos</a>
+          <a href="#contacto" onClick={() => setMobileMenuOpen(false)} className="block py-2 text-base text-[#3b271b]">Contacto</a>
           
-          <div className="pt-4 border-t border-[#FFD700]/20 flex flex-col gap-2">
-            {!currentUser && (
+          {!currentUser && (
+            <div className="pt-4 border-t border-[#9b713d]/20">
               <button
                 onClick={() => { setMobileMenuOpen(false); onOpenLogin(); }}
-                className="w-full py-2.5 rounded-lg bg-[#FFD700] text-[#120A07] font-serif font-bold text-xs"
+                className="w-full py-2.5 rounded-full bg-[#9b713d] text-[#faf5e9] font-sans font-semibold text-xs uppercase tracking-wider"
               >
                 INGRESAR / LOGIN
               </button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       )}
     </header>

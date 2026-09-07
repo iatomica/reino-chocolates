@@ -1,76 +1,76 @@
 export const CHOCOLATES_CATALOG = [
   {
-    id: 'trufa-orquidea',
-    name: 'Trufa de Orquídea Turquesa & Oro 24K',
-    category: 'Trufas Mágicas',
-    price: 18.50,
-    rating: 5.0,
-    image: '/assets/images/trufa_orquidea_turquesa.jpg',
-    description: 'Trufa artesanal en lata vintage turquesa con ganache de cacao amargo ecuatoriano 72%, infusión fresca de orquídeas turquesas y copos de oro puro de 24 quilates.',
-    badge: 'Edición Real',
-    ingredients: ['Cacao Ecuatoriano 72%', 'Orquídea Turquesa Real', 'Oro Comestible 24K', 'Mantequilla de Cacao'],
-    flavorProfile: 'Intenso, Floral, Notas de Miel y Cacao Profundo'
-  },
-  {
-    id: 'elixir-dorado',
-    name: 'Elixir de Cacao Dorado Alpino',
-    category: 'Elixires Dorados',
-    price: 24.00,
-    rating: 4.9,
-    image: '/assets/images/elixir_cacao_dorado.jpg',
-    description: 'Poción cacaotera espesa y brillante servida en redoma de cristal con lazo turquesa. Infusionada con vainilla de Bourbon, destellos de oro líquido y esencia de azahar alpino.',
-    badge: 'Inspiración Real',
-    ingredients: ['Cacao Criollo', 'Vainilla Bourbon', 'Polvo de Oro 24K', 'Extracto de Azahar', 'Menta Celeste'],
-    flavorProfile: 'Sedoso, Cálido, Destellos Cítricos y Caramelo Dorado'
-  },
-  {
-    id: 'golden-ticket-bar',
-    name: 'Tableta Ticket Dorado Wonka Montaña',
-    category: 'Edición Coleccionista',
-    price: 32.00,
-    rating: 5.0,
-    image: '/assets/images/golden_ticket_wonka.jpg',
-    description: 'Tableta de colección de 350g tallada con filigranas victorianas doradas en caja de lata turquesa. Incluye Ticket Dorado auténtico numerado.',
-    badge: '100% Coleccionable',
-    ingredients: ['Cacao Fino de Aroma', 'Cristales de Azúcar Celeste', 'Láminas de Oro', 'Avellana Tostada'],
-    flavorProfile: 'Crujiente, Amaderado, Notas Dulces de Caramelo Imperial'
-  },
-  {
-    id: 'caja-montana-turquesa',
-    name: 'Caja Grande Selección Montaña Turquesa',
-    category: 'Edición Coleccionista',
-    price: 48.00,
+    id: 'caja-seleccion-clasica',
+    name: 'Caja Selección Clásica 24 Piezas',
+    category: 'Cajas de Regalo',
+    price: 34.00,
     rating: 5.0,
     image: '/assets/images/caja_chocolates_montana.jpg',
-    description: 'Caja metálica vintage de gran formato en turquesa real con grabados dorados de la cordillera alpina y surtido de 24 bombones finos.',
+    description: 'Surtido artesanal en lata vintage color teal con detalles grabados. Contiene 24 piezas de bombones de corte y trufas de cacao 70% de origen.',
     badge: 'Selección de la Casa',
-    ingredients: ['Surtido Cacao Alpino 75%', 'Ganache de Caramelo Salado', 'Avellanas Piamonte', 'Laminado de Oro 24K'],
-    flavorProfile: 'Variado, Profundo, Caramelo Tostado y Cacao Puro'
+    ingredients: ['Cacao Fino 70%', 'Avellanas Tostadas', 'Ganache Suave', 'Manteca de Cacao'],
+    flavorProfile: 'Equilibrado, notas de frutos secos y cacao profundo'
   },
   {
-    id: 'reloj-sombrerero',
-    name: 'Reloj de Bolsillo Caramelo Salado & Bronce',
-    category: 'Especiales de Alicia',
-    price: 21.00,
+    id: 'bombones-dulce-de-leche',
+    name: 'Bombones con Dulce de Leche & Sal Marina',
+    category: 'Con Dulce de Leche',
+    price: 22.50,
     rating: 4.9,
     image: '/assets/images/elixir_cacao_dorado.jpg',
-    description: 'Reloj vintage comestible en estuche turquesa con engranajes de chocolate amargo al 75% y corazón de caramelo salado con mantequilla dorada.',
-    badge: 'Hora del Té',
-    ingredients: ['Cacao Amargo 75%', 'Caramelo a la Sal Marina', 'Manteca Alpina', 'Bronce y Oro Comestible'],
-    flavorProfile: 'Salado, Dulce, Caramelo Tostado e Intenso'
+    description: 'Bombones de chocolate semiamargo rellenos de dulce de leche artesanal de cocción lenta con un toque de sal marina patagónica.',
+    badge: 'Especialidad',
+    ingredients: ['Chocolate Semiamargo 60%', 'Dulce de Leche Artesanal', 'Sal Marina'],
+    flavorProfile: 'Cremoso, dulce de leche tostado y contraste salino'
   },
   {
-    id: 'set-te-reina',
-    name: 'Set de Té Real Cacao & Rosas Alpinas',
-    category: 'Edición Coleccionista',
-    price: 45.00,
+    id: 'tableta-grand-cru',
+    name: 'Tableta Grand Cru 85% Cacao',
+    category: 'Surtidos Premium',
+    price: 18.00,
     rating: 5.0,
+    image: '/assets/images/golden_ticket_wonka.jpg',
+    description: 'Tableta de 200g elaborada con granos de cacao seleccionados y envoltura tradicional de papel foil dorado en estuche teal.',
+    badge: 'Origen Único',
+    ingredients: ['Cacao 85% Selección', 'Azúcar de Caña Orgánica', 'Vainilla Natural'],
+    flavorProfile: 'Intenso, amaderado con notas sutiles de café y frutos rojos'
+  },
+  {
+    id: 'trufas-praline-almendras',
+    name: 'Trufas de Cacao & Praliné de Almendras',
+    category: 'Bombones Clásicos',
+    price: 26.00,
+    rating: 4.9,
     image: '/assets/images/trufa_orquidea_turquesa.jpg',
-    description: 'Tazas de té comestibles moldeadas en chocolate con acabado en turquesa real y bordes dorados. Rellenas de mousse suave de frambuesa floral.',
+    description: 'Trufas moldeadas a mano, espolvoreadas con cacao amargo puro y rellenas de praliné crocante de almendras tostadas.',
+    badge: 'Artesanal',
+    ingredients: ['Ganache de Cacao 72%', 'Almendras Tostadas', 'Cacao Puro en Polvo'],
+    flavorProfile: 'Sedoso al inicio con final crocante y tostado'
+  },
+  {
+    id: 'bombones-licor-naranja',
+    name: 'Bombones de Chocolate Negro & Naranja Confitada',
+    category: 'Bombones Clásicos',
+    price: 24.00,
+    rating: 4.8,
+    image: '/assets/images/trufa_orquidea_turquesa.jpg',
+    description: 'Cáscaras de naranja valenciana confitadas lentamente y cubiertas con chocolate amargo al 75%.',
+    badge: 'Receta Tradicional',
+    ingredients: ['Chocolate Negro 75%', 'Naranjas Confitadas', 'Esencia de Cítricos'],
+    flavorProfile: 'Cítrico refrescante y cacao amargo envolvente'
+  },
+  {
+    id: 'cofre-imperial-regalo',
+    name: 'Cofre Imperial de Degustación',
+    category: 'Cajas de Regalo',
+    price: 58.00,
+    rating: 5.0,
+    image: '/assets/images/caja_chocolates_montana.jpg',
+    description: 'Presentación de lujo en cofre de madera y metal teal con la selección completa de bombones, tabletas y trufas de la casa.',
     badge: 'Edición Limitada',
-    ingredients: ['Chocolate Leche Alpina', 'Mousse de Frambuesa Real', 'Pétalos de Rosa Cristalizada', 'Oro 24K'],
-    flavorProfile: 'Afrutado, Cremoso, Elegante y Floral'
+    ingredients: ['Surtido Completo de Chocolates', 'Folleto de Cata', 'Sello de Lacre'],
+    flavorProfile: 'Experiencia completa de cata de chocolates finos'
   }
 ];
 
-export const CATEGORIES = ['Todos', 'Trufas Mágicas', 'Elixires Dorados', 'Especiales de Alicia', 'Edición Coleccionista'];
+export const CATEGORIES = ['Todos', 'Bombones Clásicos', 'Con Dulce de Leche', 'Surtidos Premium', 'Cajas de Regalo'];

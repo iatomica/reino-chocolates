@@ -7,7 +7,7 @@ import { SpecialtiesSection } from './components/home/SpecialtiesSection';
 import { ChocolateCatalog } from './components/ChocolateCatalog';
 import { GiftSection } from './components/home/GiftSection';
 import { HeritageSection } from './components/home/HeritageSection';
-import { Footer } from './components/layout/Footer';
+import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { LoginModal } from './components/auth/LoginModal';
 import { UserDashboard } from './components/dashboard/UserDashboard';
@@ -21,19 +21,18 @@ export function App() {
 
   // Global State for Discount Coupons
   const [coupons, setCoupons] = useState([
-    { code: 'ROYAL25', discount: 25, type: 'percent', active: true },
-    { code: 'MONTAÑA20', discount: 20, type: 'percent', active: true },
-    { code: 'WONKA50', discount: 50, type: 'fixed', active: true }
+    { code: 'REINO15', discount: 15, type: 'percent', active: true },
+    { code: 'CHOCO20', discount: 20, type: 'percent', active: true }
   ]);
 
-  // Auth User State (null, or user object)
+  // Auth User State
   const [currentUser, setCurrentUser] = useState({
     id: 'user-vip-1',
     name: 'Sofía Martínez',
-    email: 'sofia.vip@reinochocolates.com',
+    email: 'sofia.martinez@reinochocolates.com',
     role: 'user',
-    vipLevel: 'Socio Oro',
-    points: 1450,
+    vipLevel: 'Cliente Frecuente',
+    points: 450,
     joinedDate: '2024-03-15'
   });
 
@@ -46,9 +45,9 @@ export function App() {
   // Cart State
   const [cartItems, setCartItems] = useState([
     {
-      id: 'trufa-orquidea',
-      name: 'Trufa de Orquídea Turquesa & Oro 24K',
-      price: 18.50,
+      id: 'caja-seleccion-clasica',
+      name: 'Caja Selección Clásica 24 Piezas',
+      price: 34.00,
       quantity: 1,
       image: '/assets/images/caja_chocolates_montana.jpg'
     }
@@ -87,7 +86,7 @@ export function App() {
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
-    <div className="min-h-screen bg-brand-cream text-brand-brown selection:bg-brand-gold selection:text-brand-brown">
+    <div className="min-h-screen bg-[#faf5e9] text-[#3b271b] selection:bg-[#9b713d] selection:text-[#faf5e9]">
       
       {/* Navigation Header */}
       <Header
@@ -144,7 +143,7 @@ export function App() {
         onLogin={handleLogin}
       />
 
-      {/* User VIP Dashboard */}
+      {/* User Dashboard */}
       <UserDashboard
         isOpen={isUserDashboardOpen}
         onClose={() => setIsUserDashboardOpen(false)}
