@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Crown } from '../ornaments/Crown';
 import { Package, Store, Gift, Award, X, CheckCircle, Clock, MapPin, Calendar } from 'lucide-react';
+import { STORES_DATA } from '../../data/storesData';
 
 export const UserDashboard = ({ isOpen, onClose, user }) => {
   const [activeTab, setActiveTab] = useState('orders');
 
   // Take Away Form State
-  const [takeAwayBranch, setTakeAwayBranch] = useState('recoleta');
+  const [takeAwayBranch, setTakeAwayBranch] = useState(STORES_DATA[0].id);
   const [takeAwayDate, setTakeAwayDate] = useState('2026-09-08');
   const [takeAwayTime, setTakeAwayTime] = useState('16:30');
   const [takeAwaySuccess, setTakeAwaySuccess] = useState(false);
@@ -234,9 +235,11 @@ export const UserDashboard = ({ isOpen, onClose, user }) => {
                     onChange={(e) => setTakeAwayBranch(e.target.value)}
                     className="w-full p-2.5 rounded border border-[#9b713d]/30 bg-[#faf5e9] text-sm font-sans focus:outline-none focus:border-[#6f9f9a]"
                   >
-                    <option value="recoleta">Boutique Recoleta (Av. Alvear 1850)</option>
-                    <option value="palermo">Boutique Palermo Soho (Gurruchaga 1620)</option>
-                    <option value="sanisidro">Casa Central San Isidro (Quintana 420)</option>
+                    {STORES_DATA.map((store) => (
+                      <option key={store.id} value={store.id}>
+                        {store.name} ({store.address}, Bariloche)
+                      </option>
+                    ))}
                   </select>
                 </div>
 
